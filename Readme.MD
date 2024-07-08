@@ -60,8 +60,6 @@ This is a simple CRUD (Create, Read, Update, Delete) application built using Pyt
 │   ├── index.html      # Homepage with student details listing
 │   ├── add.html        # Form for adding new student details
 │   └── update.html     # Form for updating student details
-├── static              # Static files (CSS, JavaScript)
-│   ├── style.css       # Custom styles
 ├── requirements.txt    # Python dependencies
 ├── Dockerfile          # Docker configuration file
 └── README.md           # This file
