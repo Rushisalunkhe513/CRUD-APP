@@ -7,10 +7,10 @@ load_dotenv()
 
 
 db = connect(
-    host='localhost',
+    host=os.getenv("ip_address"),
     port=3306,
     user='root',
-    database='crud_app',
+    database=os.getenv("db_name"),
     password=os.getenv("PASSWORD")
 )
 
