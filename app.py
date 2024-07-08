@@ -5,13 +5,14 @@ import os
 
 load_dotenv()
 
-db_url = f'postgresql://{os.getenv("USER")}:{os.getenv("PASSWORD")}@{os.getenv("HOST")}.singapore-postgres.render.com/{os.getenv("DB_NAME")}'
+db_url = "postgresql://root:GYzXqOTxsloftWiq8okOQ8nnQgxFSqL1@dpg-cq619iks1f4s73dqluk0-a.singapore-postgres.render.com/crud_app_db_otox"
 
 db = psycopg2.connect(db_url)
 
 app = Flask(__name__,template_folder='templat')
 
 cursor = db.cursor()
+
 
 @app.route("/")
 def get_student_details():
