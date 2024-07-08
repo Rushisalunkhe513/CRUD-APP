@@ -1,13 +1,21 @@
+# Use Python 3.8 slim version as base image
 FROM python:3.8-slim
 
+# Set the working directory inside the container
 WORKDIR /app
 
-RUN pip install --upgrade pip && pip install --no-cache-dir --upgrade -r requirements.txt 
+# Copy the requirements.txt file first
+COPY requirements.txt .
 
-COPY . /app/
+# Upgrade pip and install dependencies
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-COPY requirements.txt /app/
+# Copy the rest of the application files
+COPY . .
 
+# Expose port 8000 to the outside world
 EXPOSE 8000
 
-CMD ["flask","run","--debug"]
+# Command to run the Flask application
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8000", "--debug"]
