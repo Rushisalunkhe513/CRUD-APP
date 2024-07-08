@@ -7,7 +7,7 @@ load_dotenv()
 
 
 db = connect(
-    host=os.getenv("ip_address"),
+    host="localhost",
     port=3306,
     user='root',
     database=os.getenv("db_name"),
