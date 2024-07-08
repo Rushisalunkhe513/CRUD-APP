@@ -1,23 +1,17 @@
-from mysql.connector import connect, Error
+import psycopg2
 from flask import Flask, url_for, redirect, render_template, request
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
+db_url = f'postgresql://{os.getenv("USER")}:{os.getenv("PASSWORD")}@{os.getenv("HOST")}.singapore-postgres.render.com/{os.getenv("DB_NAME")}'
 
-db = connect(
-        host=os.getenv("MYSQL_HOST"),
-        port=int(os.getenv("MYSQL_PORT", 3306)),
-        user=os.getenv("MYSQL_USER"),
-        password=os.getenv("MYSQL_PASSWORD"),
-        database=os.getenv("MYSQL_DATABASE")
-)
+db = psycopg2.connect(db_url)
 
 app = Flask(__name__,template_folder='templat')
 
 cursor = db.cursor()
-
 
 @app.route("/")
 def get_student_details():
