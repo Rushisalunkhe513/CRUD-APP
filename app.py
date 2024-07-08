@@ -7,11 +7,11 @@ load_dotenv()
 
 
 db = connect(
-    host="localhost",
-    port=3306,
-    user='root',
-    database=os.getenv("db_name"),
-    password=os.getenv("PASSWORD")
+        host=os.getenv("MYSQL_HOST"),
+        port=int(os.getenv("MYSQL_PORT", 3306)),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        database=os.getenv("MYSQL_DATABASE")
 )
 
 app = Flask(__name__,template_folder='templat')
