@@ -62,7 +62,7 @@ This is a simple CRUD (Create, Read, Update, Delete) application built using Pyt
 │   └── update.html     # Form for updating student details
 ├── requirements.txt    # Python dependencies
 ├── Dockerfile          # Docker configuration file
-└── README.md           # This file
+└── README.md           # File for project description
 ```
 
 ## Usage
